@@ -1,0 +1,64 @@
+body {
+			background: #eee;
+		}
+		button {
+			background: #7777fd;
+			    border: none;
+			    color: #fff;
+			    padding: 10px 30px;
+			    font-size: 12px;
+			    outline: none;
+			    border-radius: 4px;
+			    font-family: Roboto;
+			    letter-spacing: 1.5px;
+			    font-weight: 400;
+			    cursor: pointer;
+  				transition: all 0.1s cubic-bezier(.25,.8,.25,1);
+			   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      margin: 10px;
+		}
+
+		button[dark] {
+            background: -webkit-linear-gradient(bottom right,#304352,#162851);
+		}
+.container {
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	grid-template-rows: 0.2fr 3.1fr 0.4fr;
+	gap: 0px 0px;
+	grid-auto-flow: row;
+	grid-template-areas:
+		"title title"
+		"botones video"
+		"autor autor";
+}
+
+.title {
+	grid-area: title;
+}
+
+.autor {
+	grid-area: autor;
+}
+
+.botones {
+	grid-area: botones;
+}
+
+
+.video {
+	grid-area: video;
+}
+
+#demoFont {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+	word-spacing: 2px;
+	color: #000000;
+	font-weight: normal;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+}

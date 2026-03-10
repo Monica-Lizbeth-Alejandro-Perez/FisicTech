@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FisicTech AI · Evaluación Motriz</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="p5.min.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="ml5.min.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="appHeader">
+        <div class="brand">
+          <div class="brandLogoSection" aria-hidden="true">
+            <img src="logo.png" alt="" class="brandLogo" />
+          </div>
+          <div class="brandText">
+            <div class="brandTitle">FisicTech <span>AI</span></div>
+            <div class="brandSubtitle">Evaluación motriz con Inteligencia Artificial</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="appMain">
+        <section class="heroCard">
+          <div class="heroBar">Evaluación Motriz en Tiempo Real</div>
+
+          <div class="heroGrid">
+            <div class="leftColumn">
+              <div class="cameraCard">
+                <div id="videoContainer" class="videoContainer"></div>
+                <div class="statusRow">
+                  <div class="spinner" aria-hidden="true"></div>
+                  <p id="status" class="statusText">Cargando el Modelo...</p>
+                </div>
+              </div>
+
+              <section class="evaluation">
+                <div class="evaluationTitle">Evaluación</div>
+                <div class="evaluationActions">
+                  <button dark id="buttonPredict" class="btnPrimary">Inicie la evaluación</button>
+                  <button id="downloadFiles" class="btnSecondary">Descargue archivos</button>
+                  <button id="clearAll" class="btnSecondary">Limpiar todo</button>
+                </div>
+                <div class="resultCard" aria-live="polite">
+                  <div class="resultTitle">Resultado de la Evaluación</div>
+                  <div class="resultGrid">
+                    <div class="resultRow">
+                      <span class="resultLabel">Modelo usado:</span>
+                      <span class="resultValue"><span id="result">...</span></span>
+                    </div>
+                    <div class="resultRow">
+                      <span class="resultLabel">Calificación alcanzada:</span>
+                      <span class="resultValue"><span id="confidence">...</span></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <aside class="sideCards">
+              <section class="panel panelOk" aria-label="Usuario 1">
+                <div class="panelTitle">Usuario 1</div>
+                <div class="panelBody">
+                  <div class="panelFileRow">
+                    <input type="file" id="fileInputA" accept=".json" class="inputFile" aria-label="Seleccionar archivo Usuario 1" />
+                    <button type="button" id="btnFileA" class="btnGhost btnFile">Seleccionar archivo</button>
+                    <span id="fileLabelA" class="fileLabel">Sin archivo seleccionado</span>
+                  </div>
+                  <div class="panelButtons">
+                    <button dark id="addClassA">Capturar</button>
+                    <button id="resetA" class="btnGhost">Reset</button>
+                  </div>
+                  <div class="panelMeta">
+                    <div class="metaRow">
+                      <span class="metaLabel">Número de ejemplos</span>
+                      <span class="metaValue"><span id="exampleA">0</span></span>
+                    </div>
+                    <div class="metaRow">
+                      <span class="metaLabel">Precisión</span>
+                      <span class="metaValue"><span id="confidenceA">0</span></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel panelBad" aria-label="Usuario 2">
+                <div class="panelTitle">Usuario 2</div>
+                <div class="panelBody">
+                  <div class="panelFileRow">
+                    <input type="file" id="fileInputB" accept=".json" class="inputFile" aria-label="Seleccionar archivo Usuario 2" />
+                    <button type="button" id="btnFileB" class="btnGhost btnFile">Seleccionar archivo</button>
+                    <span id="fileLabelB" class="fileLabel">Sin archivo seleccionado</span>
+                  </div>
+                  <div class="panelButtons">
+                    <button dark id="addClassB">Capturar</button>
+                    <button id="resetB" class="btnGhost">Reset </button>
+                  </div>
+                  <div class="panelMeta">
+                    <div class="metaRow">
+                      <span class="metaLabel">Número de ejemplos</span>
+                      <span class="metaValue"><span id="exampleB">0</span></span>
+                    </div>
+                    <div class="metaRow">
+                      <span class="metaLabel">Precisión</span>
+                      <span class="metaValue"><span id="confidenceB">0</span></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer class="appFooter">FisioTech AI · Evaluación motriz con IA para fisioterapia y rehabilitación</footer>
+    </div>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
